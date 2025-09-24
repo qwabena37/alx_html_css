@@ -63,13 +63,15 @@ h1, h2, h3, h4, h5, h6, header {
 	font-family: 'Yeseva One', sans-serif;
 }
 article {
+	color:rgb(2, 2, 26);
+	background-color: antiquewhite;
 }
 header {
 	border-bottom: 1px solid rgb(221,221,221);
 	transition: border-bottom-color 1s ease;
 }
 header a {
-	color: rgba(0, 0, 0, 0.8);
+	color: rgba(252, 252, 253, 0.8);
 }
 aside {
 	background: #FAFAFA;
@@ -124,6 +126,8 @@ header ul {
 header li {
 	display: inline;
 	vertical-align:middle;
+	color: white;
+	background-color: rgb(2, 2, 31);
 }
 header li:first-child {
 	margin: 0;

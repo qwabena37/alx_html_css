@@ -5,6 +5,11 @@ body {
   margin: 0; /* remove default margins */
   height: 100vh; /* ensure it fills viewport */
 }
+nav a:hover{
+     background-color: #ffffff;
+  color: #222;
+  transform: scale(1.1);
+}
 
 /* Main as a flex container with row layout */
 main {
