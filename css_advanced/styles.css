@@ -1,0 +1,84 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+.banner{
+    background-image: url('Photos/Object.png');
+    background-repeat: no-repeat;
+    background-position: absolute;
+    filter: grayscale(grey);
+}
+nav img{
+    display: flex;
+    float: left;
+    margin-top: 30px;
+    margin-left: 80px;
+
+}
+ul {
+  list-style-type: none;
+ margin-right: 10px;
+  padding: 0;
+}
+
+ul li {
+    margin-top: 30px;
+  float: right;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bolder;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ul li a:hover {
+  background-color: #e687de;
+  border-radius: 30px;
+}
+#center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+    min-height: 700px;
+    
+}
+#school{
+    color: white;
+    font-weight: bolder;
+    font-size: 90px;
+}
+#span{
+    display: block;
+    justify-content: space-around;
+    text-align: center;
+  padding: 0px 0px 40px 0px;
+  margin-top: -50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+span{
+padding-inline: 30px;
+}
+
+#register{
+    background-color: rgb(206, 147, 211);
+    border-radius: 20px;
+    color:white ;
+    padding: 10px 10px 10px 10px;
+    box-shadow: #111111;
+}
+#pros{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-direction: column;
+}
