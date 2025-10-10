@@ -1,109 +1,286 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* --- Font Face --- */
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('Elements/Font/source-sans-pro/SourceSansPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
-/* Variables */
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('Elements/Font/source-sans-pro/SourceSansPro-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('Elements/Font/source-sans-pro/SourceSansPro-Semibold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* --- General --- */
 :root {
-  --primary-color: #FF6565;
-  --text-color: #333;
-  --bg-color: #fff;
-  --max-width: 1000px;
-  --font-family: 'Source Sans Pro', sans-serif;
+    --primary: #FF6565;
+    --dark: #071629;
+    --pure: #fff;
 }
 
-/* Generic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: var(--font-family);
-  color: var(--text-color);
-  background-color: var(--bg-color);
+    font-family: 'SourceSansPro', sans-serif;
+    color: var(--pure);
 }
 
 .container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 20px;
+    width: 1000px;
+    margin: 0 auto;
 }
 
-/* Header */
-.header {
-  background-color: var(--bg-color);
-  padding: 20px 0;
-}
-
-.logo {
-  height: 40px;
-}
-
-.nav-list {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: var(--text-color);
-}
-
-.nav-list a:hover,
-.nav-list a:active {
-  color: var(--primary-color);
-}
-
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 60px 20px;
-  background-image: url('Images/headphones_hero_1.jpg');
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
+/* --- Component --- */
 .btn {
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
-  cursor: pointer;
+    border: transparent;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
 }
 
-.btn:hover,
-.btn:active {
-  opacity: 0.9;
+.btn-primary {
+    color: var(--pure);
+    background: var(--primary);
+    transition: all .3s ease;
 }
 
-/* Responsive */
-@media screen and (max-width: 480px) {
-  .nav-list {
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+#menu-checker, #menu-checker2 {
+    opacity: 0;
+}
+
+.menu {
+    background-color: var(--pure);
+    width: 20px;
+    height: 3px;
+    border-radius: 50px;
+    transform: translateY(-20px);
+    position: relative;
+    transition: all .3s ease;
+}
+
+#menu-checker:checked ~ label .hamburger-menu .menu {
+    transform: translateY(-10px) rotate(45deg);
+    /* transform: ; */
+}
+
+.menu::before {
+    content: "";
+    width: 12px;
+    height: 3px;
+    border-radius: 50px;
+    position: absolute;
+    background-color: var(--pure);
+    transform: translateY(8px);
+    transition: all .3s ease;
+}
+
+#menu-checker:checked ~ label .hamburger-menu .menu::before {
+    display: none;
+}
+
+.menu::after {
+    content: "";
+    width: 20px;
+    height: 3px;
+    border-radius: 50px;
+    position: absolute;
+    background-color: var(--pure);
+    transform: translateY(16px);
+    transition: all .3s ease;
+}
+
+#menu-checker:checked ~ label .hamburger-menu .menu::after {
+    /* transform: translateY(16px); */
+    transform: rotate(-90deg);
+}
+
+/* --- Utility */
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.item-center {
+    align-items: center;
+}
+
+.flex-column {
     flex-direction: column;
-    gap: 10px;
-  }
+}
 
-  .hero {
-    background-image: url('Images/headphones_hero_2.jpg');
-    padding: 40px 10px;
-  }
+.relative {
+    position: relative;
+}
 
-  .hero h1 {
+
+/* --- Header --- */
+header {
+    background: url(Elements/images/headphones_hero_1.jpg) no-repeat;
+    background-size: cover;
+    padding-bottom: 7rem;   
+}
+
+header .nav-container {
+    width: 100%;
+    padding-top: 2rem;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .nav-container .nav-left {
+    width: 161px;
+}
+
+header .nav-container .nav-left .hamburger-menu {
+    display: none;
+}
+
+header .nav-container .nav-left .logo .logo-img {
+    width: 100%;
+}
+
+
+header .nav-container .nav-right ul li {
+    list-style: none;
+    margin-left: 2.5rem;
+}
+
+.hamburger-menu-links li {
+    list-style: none;
+}
+
+header .nav-container .nav-right ul li a, .hamburger-menu-links li a {
+    text-decoration: none;
+    color: var(--pure);
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: lowercase;
+    transition: all .3s ease;
+}
+
+header .nav-container .nav-right ul li a:hover, .hamburger-menu-links li a:hover {
+    color: var(--primary);
+}
+
+.hamburger-label {
+    display: none;
+}
+
+.hamburger-menu-links {
+    margin-top: 5rem;
+    display: none;
+}
+
+.hamburger-menu-links li {
+    margin-bottom: 2rem;
+}
+
+header .hero {
+    margin: 0 auto;
+    padding-top: 24rem;
+    text-align: center;
+    width: 637px;
+}
+
+header .hero h1 {
+    font-weight: bold;
     font-size: 2rem;
-  }
+}
 
-  .hero p {
+header .hero h3 {
+    font-weight: bold;
     font-size: 1rem;
-  }
+}
+
+header .hero .btn-wrapper {
+    margin-top: 2.7rem;
+    margin-bottom: 3.8rem;
+}
+
+header .hero p {
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 26px;
+}
+
+
+@media (max-width: 480px) {
+    header {
+        width: 100%;
+        object-fit: cover;
+        background-position: 40% 0;
+        background-size: cover;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    header .nav-container {
+        width: 90%;
+        padding-top: 3rem;
+    }
+
+    header .nav-container .nav-left {
+        position: relative;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header label.hamburger-label {
+        display: block;
+        position: absolute;
+        left: 30px;
+        top: 76px;
+        width: 20px;
+    }
+
+    #menu-checker:checked ~ .hamburger-menu-links {
+        display: block;
+        text-align: center;
+    }
+
+    header .nav-container .nav-left .logo {
+        max-width: 161px;
+        left: 50%;
+        transform: translateX(80%);
+    }
+
+    header .nav-container .nav-right {
+        display: none;
+    }
+
+    header .hero {
+        width: 357px;
+    }
 }
